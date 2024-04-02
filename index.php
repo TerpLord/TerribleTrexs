@@ -10,6 +10,7 @@
 
 <header>
 	<h1 style = "text-align: center; color: black;"><strong>Welcome to TerribleTrexs's Homepage</strong></h1>	
+	<img src = "images/Logo.jpg"></img>
 </header>
 
 <body>
