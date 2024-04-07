@@ -5,14 +5,25 @@
 	<meta name="author" content="TerribleTrexs Members">
 	<meta name="description" content="Homepage for TerribleTrexs team Website">
 	<meta name="keywords" content="Contact Info">
-	<!-- <link rel="stylesheet" href = "style.css"> -->
+	<link rel="stylesheet" href = "CSSfiles/index.css">
 </head>
 
 <header>
-	<h1 style = "text-align: center; color: black;"><strong>Welcome to TerribleTrexs's Homepage</strong></h1>	
-	<img src = "images/Logo.jpg"></img>
+	<h1 id = "h1_header"><strong>TerribleTrexs</strong></h1>	
+	<div class="dropdown">
+  		<button class="dropbtn"></button>
+  			<div class="dropdown-content">
+    			<a href="index.php">Main Page</a>
+    			<a href="Htmlfiles/about.html">About Page</a>
+    			<a href="">Table</a>
+  			</div>
+	</div>
 </header>
 
 <body>
-	<a href = "Htmlfiles/about.html">about</a>
+	<img id = "main_image" src = "images/Logo.jpg"></img>
+	<p>
+		Welcome to the TerribleTrexs's Homepage, 
+		you will be able to find our projects and other relevant pages below 
+		or in the dropdown Menu at the top left of the screen</p>
 </body>
