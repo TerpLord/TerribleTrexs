@@ -70,16 +70,20 @@
 
             function drawTable()
             {
-                var tableCode;
-                var colorTable;
+                var tableCode = "";
+                var colorTable = "";
+                let colorInput = document.getElementById('colorInput').value;
+                let tableInput = document.getElementById('tableSizeInput').value;
+                let colorSize = Number(colorInput);
+                let tableSize = Number(tableInput);
+                
+                if (colorSize > 0 && colorSize <= 10 && tableSize > 0 && tableSize <= 26)
+                {
+                var tableHeader = "<thead> </thead>";
                 let dropdown = 1; 
 
-                let colorSize = document.getElementById('colorInput').value;
-                let tableSize = document.getElementById('tableSizeInput').value;
-                console.log(colorSize);
-                console.log(tableSize);
-
                 colorTable += "<table border = 1>\n";
+                colorTable += tableHeader;
                 var column = 0;
                 var row = 1;
                 let colorNames = Array.from(colorMap.keys()); 
@@ -104,9 +108,7 @@
                     }
                     colorTable += "</tr>";
                 }
-                colorTable += "</table>";
-
-
+                colorTable += "</tr>\n</table>";
                 tableCode += "<table border = 1>\n";
                 var column = 0;
                 var row = 1;
@@ -152,24 +154,33 @@
                     row++;
                 }
                 tableCode += "</tr>\n</table>";
+                }
+                else if (!(colorSize > 0 && colorSize <= 10))
+                {
+                    colorTable += "Invalid size for colors, you entered: \"";
+                    colorTable += colorInput;
+                    colorTable += "\" please enter a number between 1 and 10";
+                }
+                else if (!(tableSize > 0 && tableSize <= 26))
+                {
+                    colorTable += "Invalid size for table size, you entered: \"";
+                    colorTable += tableInput;
+                    colorTable += "\" please enter a number between 1 and 26";
+                }
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
             }
-            
-            
             </script>
-            <input name = "numColors" type = "text" value = "Enter the number of colors (1-10)" id="colorInput"/>
-            <br>
-            <br>
-            <input name = "tableSize" type = "text" value = "Enter the table size (1-26)" id="tableSizeInput"/>
+
+            <p>Enter the number of colors you would like to see (1-10)</p>
+            <input name = "numColors" type = "text" value = "" id="colorInput"/>
+            <p>Enter the number or rows and columns you would like to see (1-26)</p>
+            <input name = "tableSize" type = "text" value = "" id="tableSizeInput"/>
             <br>
             <br>
             <input name = "generateTable" type = "button" value = "Generate tables" onclick = "drawTable();"/>
-            <div id="colorTable"></div>
-            <div id="squareTable"></div>
+            <div id="colorTable"> </div>
+            <div id="squareTable"> </div>
         </main>
-        
-
-
     </body>
 </html>
