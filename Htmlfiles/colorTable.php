@@ -7,7 +7,7 @@
     <meta name="author" content="">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-    <!-- <link rel="stylesheet" href = "style.css"> -->
+    <link rel="stylesheet" href = "../CSSFiles/table.css"> 
 </head>
     <body>
     <main>
@@ -26,18 +26,46 @@
             let brown = "#A52A2A";
             let black = "#000000";
             let teal = "#008080";
-            const colorMap = new Map();
-            colorMap.set(1, "#FF0000");
-            colorMap.set(2, "#FFA500");
-            colorMap.set(3, "#FFFF00");
-            colorMap.set(4, "#008000");
-            colorMap.set(5, "#0000FF");
-            colorMap.set(6, "#800080");
-            colorMap.set(7, "#808080");
-            colorMap.set(8, "#A52A2A");
-            colorMap.set(9, "#000000");
-            colorMap.set(10, "#008080");
+            const colorMap = new Map([
+                ["red", "#FF0000"],
+                ["orange", "#FFA500"],
+                ["yellow", "#FFFF00"],
+                ["green", "#008000"],
+                ["blue", "#0000FF"],
+                ["purple", "#800080"],
+                ["grey", "#808080"],
+                ["brown", "#A52A2A"],
+                ["black", "#000000"],
+                ["teal", "#008080"]
+            ]);
 
+// checking to see if the color has been slected before or not
+            function checkSelection(dropdown) {
+                let selectedColor = dropdown.value;
+                let dropdownId = dropdown.id;
+
+                
+                let duplicates = false;
+                document.querySelectorAll("select").forEach((select) => {
+                 if (select.id !== dropdownId && select.value === selectedColor) {
+                    duplicates = true;
+                    }
+                });
+
+                if (duplicates) {
+                dropdown.value = ""; // Reset the selection to empty might want to change this most recent color selected
+                // Inform the user of the error this is not working as of now
+                document.getElementById('error').innerText = "Error: Two of the same colors cannot be selected.";
+                } else {
+                 document.getElementById('error').innerText = ""; // Clear any previous error messages
+                }
+            }
+
+            function updateColor(dropdown, rowIndex, columnIndex) {
+                let selectedColor = dropdown.value;
+                let cellId = "colorCell_" + rowIndex + "_" + columnIndex;
+                document.getElementById(cellId).style.backgroundColor = selectedColor;
+             }
 
 
             function drawTable()
@@ -54,30 +82,29 @@
                 colorTable += "<table border = 1>\n";
                 var column = 0;
                 var row = 1;
-                for (var i = 0; i < colorSize; i++)
-                {
-                  
+                let colorNames = Array.from(colorMap.keys()); 
+                for (var i = 0; i < colorSize; i++) {
+                    let colorName = colorNames[i]; 
+                    let color = colorMap.get(colorName); 
                     colorTable += "<tr>";
-                        for (var j = 0; j < 2; j++) 
-                        {
-                            if (j == 0)
-                            {
-                                colorTable += "<td>"
-                                //dropdowns
-                                colorTable += "</td>"
-                            }
-                            else
-                            {
-                                colorTable += "<td"
-                                colorTable += "></td>"
-                            }
-                            
+                    for (var j = 0; j < 2; j++) {
+                        if (j == 0) {
+                        colorTable += "<td>";
+
+                        colorTable += "<select id='colorDropdown_" + i + "' onchange='checkSelection(this)'>";
+                        // Adding options to the dropdown
+                        for (let [name, color] of colorMap) {
+                            colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
-                    
+                        colorTable += "</select>";
+                        colorTable += "</td>";
+                        } else {
+                            colorTable += "<td style='background-color:" + color + "'></td>";
+                        }
+                    }
                     colorTable += "</tr>";
-                    row++;
                 }
-                colorTable += "</tr>\n</table>";
+                colorTable += "</table>";
 
 
                 tableCode += "<table border = 1>\n";
