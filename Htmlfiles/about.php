@@ -14,8 +14,8 @@
   			<button class="dropbtn"></button>
   				<div class="dropdown-content">
     				<a href="index.php">Main Page</a>
-    				<a href="Htmlfiles/about.php">About Page</a>
-    				<a href="Htmlfiles/colorTable.php">Table</a>
+    				<a href="about.php">About Page</a>
+    				<a href="colorTable.php">Table</a>
   				</div>
 		</div>
 	</header>
