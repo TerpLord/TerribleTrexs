@@ -82,10 +82,10 @@
                 colorTable += "<table border = 1>\n";
                 var column = 0;
                 var row = 1;
-                let colorNames = Array.from(colorMap.keys()); // Get an array of color names
+                let colorNames = Array.from(colorMap.keys()); 
                 for (var i = 0; i < colorSize; i++) {
-                    let colorName = colorNames[i]; // Get the color name
-                    let color = colorMap.get(colorName); // Get the corresponding color
+                    let colorName = colorNames[i]; 
+                    let color = colorMap.get(colorName); 
                     colorTable += "<tr>";
                     for (var j = 0; j < 2; j++) {
                         if (j == 0) {
