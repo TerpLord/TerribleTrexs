@@ -44,10 +44,12 @@
             {
                 var tableCode;
                 var colorTable;
-                var colorSize = 10;
                 let dropdown = 1; 
 
-
+                let colorSize = document.getElementById('colorInput').value;
+                let tableSize = document.getElementById('tableSizeInput').value;
+                console.log(colorSize);
+                console.log(tableSize);
 
                 colorTable += "<table border = 1>\n";
                 var column = 0;
@@ -78,16 +80,15 @@
                 colorTable += "</tr>\n</table>";
 
 
-                var size = 10;
                 tableCode += "<table border = 1>\n";
                 var column = 0;
                 var row = 1;
-                for (var i = 0; i < size; i++)
+                for (var i = 0; i < tableSize; i++)
                 {
                     if (i == 0)
                     {
                         tableCode += "<tr>";
-                        for (var k = 0; k <= size; k++)
+                        for (var k = 0; k <= tableSize; k++)
                         {
                             tableCode += "<td>"   
                             if (column > 0)
@@ -104,7 +105,7 @@
                         tableCode += "</tr>";
                     }
                     tableCode += "<tr>";
-                        for (var j = 0; j <= size; j++) 
+                        for (var j = 0; j <= tableSize; j++) 
                         {
                             if (j == 0)
                             {
@@ -124,15 +125,19 @@
                     row++;
                 }
                 tableCode += "</tr>\n</table>";
-                console.log(colorTable);
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
             }
             
             
             </script>
-
-            <input name = "test" type = "button" value = "test" onclick = "drawTable();"/>
+            <input name = "numColors" type = "text" value = "Enter the number of colors (1-10)" id="colorInput"/>
+            <br>
+            <br>
+            <input name = "tableSize" type = "text" value = "Enter the table size (1-26)" id="tableSizeInput"/>
+            <br>
+            <br>
+            <input name = "generateTable" type = "button" value = "Generate tables" onclick = "drawTable();"/>
             <div id="colorTable"></div>
             <div id="squareTable"></div>
         </main>
