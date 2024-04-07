@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <title>about</title>
 	<meta name="author" content="TerribleTrexs Members">
 	<meta name="description" content="About page for TerribleTrexs team members">
 	<meta name="keywords" content="Contact Info">
-	<link rel="stylesheet" href = "../CSSfiles/about.css">
+	<link rel="stylesheet" href="../CSSfiles/about.css">
 </head>
-
-<header>
-    <img>
-	<h1><strong>About Page</strong></h1>	
-</header>
-
 <body>
+    <header>
+	    <h1 id="h1_header"><strong>About Page</strong></h1>	
+	    <div class="dropdown">
+  			<button class="dropbtn"></button>
+  				<div class="dropdown-content">
+    				<a href="index.php">Main Page</a>
+    				<a href="Htmlfiles/about.html">About Page</a>
+    				<a href="">Table</a>
+  				</div>
+		</div>
+	</header>
+
     <div class="team-members">
         <div class="team-member">
             <img src="member1.jpg" alt="Member 1">
@@ -36,6 +42,7 @@
             <img src="member2.jpg" alt="Member 2">
             <h2>Member 4</h2>
             <p>Description of Member 2</p>
-      </div>
+        </div>
     </div>
-  </body>
+</body>
+</html>
