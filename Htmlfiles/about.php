@@ -41,9 +41,11 @@
             about how they work and discovering amazing new ways to use them to solve complex problems and better the world.</p>
         </div>
         <div class="team-member">
-            <img src="member2.jpg" alt="Member 2">
-            <h2>Member 4</h2>
-            <p>Description of Member 2</p>
+            <img src="../images/Mark.jpg" alt="Member 4">
+            <h2>Mark Antwi</h2>
+            <p>My name is Mark and I'm a third-year CSU student studying computer science. In my free time I enjoy snowboarding, gaming, and music. 
+            My goal in this course is to get more familiar with GitHub and Web Development, 
+            as well as get more familiar with a professional environment that can translate to the real world.</p>
         </div>
     </div>
 </body>
