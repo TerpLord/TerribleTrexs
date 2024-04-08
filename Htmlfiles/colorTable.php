@@ -7,7 +7,7 @@
     <meta name="author" content="">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-    <link rel="stylesheet" type="text/css"  href = "../CSSfiles/table.css"> 
+    <link rel="stylesheet" href = "../CSSfiles/table.css"> 
 
 </head>
     <body>
