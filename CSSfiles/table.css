@@ -1,3 +1,4 @@
+
  header {
     background-color: black;
     padding-left: 30px;
@@ -109,3 +110,8 @@ body{
     
   }
 
+#printButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
