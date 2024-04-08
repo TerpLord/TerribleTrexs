@@ -7,14 +7,21 @@
     <meta name="author" content="">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-    <link rel="stylesheet" href = "../CSSfiles/table.css"> 
+    <link rel="stylesheet" href="../CSSfiles/table.css">
 
 </head>
     <body>
-    <main>
         <header>
-            <h1>Color table</h1>
-        </header>
+	    <h1 id="h1_header"><strong>Color Table</strong></h1>	
+	        <div class="dropdown">
+  			    <button class="dropbtn"></button>
+  				    <div class="dropdown-content">
+    				    <a href="../index.php">Main Page</a>
+    				    <a href="about.php">About Page</a>
+    				    <a href="colorTable.php">Table</a>
+  				</div>
+		    </div>
+	    </header>
 
             <script> 
             let red = "#FF0000";
@@ -40,7 +47,7 @@
                 ["teal", "#008080"]
             ]);
 
-// checking to see if the color has been slected before or not
+            // checking to see if the color has been selected before or not
             function checkSelection(dropdown) {
                 let selectedColor = dropdown.value;
                 let dropdownId = dropdown.id;
@@ -77,13 +84,14 @@
                 let tableInput = document.getElementById('tableSizeInput').value;
                 let colorSize = Number(colorInput);
                 let tableSize = Number(tableInput);
+                //document.getElementById(squareTable).style.display = none;
                 
                 if (colorSize > 0 && colorSize <= 10 && tableSize > 0 && tableSize <= 26)
                 {
                 var tableHeader = "<thead> </thead>";
                 let dropdown = 1; 
 
-                colorTable += "<table border = 1>\n";
+                colorTable += "<table id=\"colorSelectors\">\n";
                 colorTable += tableHeader;
                 var column = 0;
                 var row = 1;
@@ -110,7 +118,7 @@
                     colorTable += "</tr>";
                 }
                 colorTable += "</tr>\n</table>";
-                tableCode += "<table border = 1>\n";
+                tableCode += "<table id=\"squareTable\">\n";
                 var column = 0;
                 var row = 1;
                 for (var i = 0; i < tableSize; i++)
@@ -154,19 +162,20 @@
                     tableCode += "</tr>";
                     row++;
                 }
-                tableCode += "</tr>\n</table>";
+                    tableCode += "</tr>\n</table>";
+                    //document.getElementById(squareTable).style.display = inline-block;
                 }
                 else if (!(colorSize > 0 && colorSize <= 10))
                 {
-                    colorTable += "Invalid size for colors, you entered: \"";
+                    colorTable += "<p>Invalid size for colors, you entered: \"";
                     colorTable += colorInput;
-                    colorTable += "\" please enter a number between 1 and 10";
+                    colorTable += "\" please enter a number between 1 and 10</p>";
                 }
                 else if (!(tableSize > 0 && tableSize <= 26))
                 {
-                    colorTable += "Invalid size for table size, you entered: \"";
+                    colorTable += "<p>Invalid size for table size, you entered: \"";
                     colorTable += tableInput;
-                    colorTable += "\" please enter a number between 1 and 26";
+                    colorTable += "\" please enter a number between 1 and 26</p>";
                 }
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
@@ -177,19 +186,19 @@
             }
             </script>
 
-            <p>Enter the number of colors you would like to see (1-10)</p>
+            <p>Enter the number of colors options you would like (1-10)</p>
             <input name = "numColors" type = "text" value = "" id="colorInput"/>
             <p>Enter the number or rows and columns you would like to see (1-26)</p>
             <input name = "tableSize" type = "text" value = "" id="tableSizeInput"/>
             <br>
             <br>
             <input name = "generateTable" type = "button" value = "Generate tables" onclick = "drawTable();"/>
+            <br>
             <div id="colorTable"> </div>
+            <br>
             <div id="squareTable"> </div>
 
             <button id="printButton" onclick="openPrintPage()">Print</button>
 
-
-        </main>
     </body>
 </html>
