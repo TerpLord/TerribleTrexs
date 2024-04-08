@@ -183,6 +183,8 @@
             {
                 window.open('printpage.php', '_blank');
             }
+
+
             </script>
 
             <p>Enter the number of colors options you would like (1-10)</p>
