@@ -84,7 +84,6 @@
                 let tableInput = document.getElementById('tableSizeInput').value;
                 let colorSize = Number(colorInput);
                 let tableSize = Number(tableInput);
-                //document.getElementById(squareTable).style.display = none;
                 
                 if (colorSize > 0 && colorSize <= 10 && tableSize > 0 && tableSize <= 26)
                 {
@@ -112,7 +111,7 @@
                         colorTable += "</select>";
                         colorTable += "</td>";
                         } else {
-                            colorTable += "<td style='background-color:" + color + "'></td>";
+                            colorTable += "<td></td>";
                         }
                     }
                     colorTable += "</tr>";
