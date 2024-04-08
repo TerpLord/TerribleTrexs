@@ -34,9 +34,11 @@
                 My passions outside of school are mountain biking, Skiing, and Scuba Diving.</p>
         </div>
         <div class="team-member">
-            <img src="member2.jpg" alt="Member 2">
-            <h2>Member 3</h2>
-            <p>Description of Member 2</p>
+            <img src="../images/Alex-Rubsam-headshot.jpg" alt="Member 3">
+            <h2>Alex Rubsam</h2>
+            <p>Passionate learner pursuing my computer science degree. I am an Experienced worker with a background
+            in construction and manufacturing. Computers have always been a passion of mine and I love learning more
+            about how they work and discovering amazing new ways to use them to solve complex problems and better the world.</p>
         </div>
         <div class="team-member">
             <img src="member2.jpg" alt="Member 2">
