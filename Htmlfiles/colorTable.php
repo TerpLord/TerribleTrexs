@@ -7,7 +7,8 @@
     <meta name="author" content="">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
-    <link rel="stylesheet" href = "../CSSFiles/table.css"> 
+    <link rel="stylesheet" href = "../CSSfiles/table.css"> 
+
 </head>
     <body>
     <main>
@@ -170,6 +171,10 @@
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
             }
+            function openPrintPage() 
+            {
+                window.open('printpage.php', '_blank');
+            }
             </script>
 
             <p>Enter the number of colors you would like to see (1-10)</p>
@@ -181,6 +186,10 @@
             <input name = "generateTable" type = "button" value = "Generate tables" onclick = "drawTable();"/>
             <div id="colorTable"> </div>
             <div id="squareTable"> </div>
+
+            <button id="printButton" onclick="openPrintPage()">Print</button>
+
+
         </main>
     </body>
 </html>
