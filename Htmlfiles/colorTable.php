@@ -166,22 +166,22 @@
                 }
                 else if (!(colorSize > 0 && colorSize <= 10))
                 {
-                    colorTable += "Invalid size for colors, you entered: \"";
+                    colorTable += "<p>Invalid size for colors, you entered: \"";
                     colorTable += colorInput;
-                    colorTable += "\" please enter a number between 1 and 10";
+                    colorTable += "\" please enter a number between 1 and 10</p>";
                 }
                 else if (!(tableSize > 0 && tableSize <= 26))
                 {
-                    colorTable += "Invalid size for table size, you entered: \"";
+                    colorTable += "<p>Invalid size for table size, you entered: \"";
                     colorTable += tableInput;
-                    colorTable += "\" please enter a number between 1 and 26";
+                    colorTable += "\" please enter a number between 1 and 26</p>";
                 }
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
             }
             </script>
 
-            <p>Enter the number of colors you would like to see (1-10)</p>
+            <p>Enter the number of colors options you would like (1-10)</p>
             <input name = "numColors" type = "text" value = "" id="colorInput"/>
             <p>Enter the number or rows and columns you would like to see (1-26)</p>
             <input name = "tableSize" type = "text" value = "" id="tableSizeInput"/>
