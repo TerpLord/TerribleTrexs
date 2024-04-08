@@ -24,6 +24,13 @@
 	<img id = "main_image" src = "images/Logo.jpg"></img>
 	<p>
 		Welcome to the TerribleTrexs's Homepage, 
-		you will be able to find our projects and other relevant pages below 
-		or in the dropdown Menu at the top left of the screen</p>
+		you will be able to find our projects and other relevant pages in the links below 
+		or in the dropdown Menu at the top right of the screen
+	</p>
+	<ul>
+		<li><a href = "Htmlfiles/about.php"> About Page </a></li>
+		<li><a href = "Htmlfiles/colorTable.php"> Table </a></li>
+	</ul>
+
+	
 </body>
