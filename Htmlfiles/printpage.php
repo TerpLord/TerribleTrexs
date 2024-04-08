@@ -46,15 +46,19 @@ window.onload = function() {
     var selectElements = document.querySelectorAll('#colorTable select');
 
     selectElements.forEach(function(selectElement) {
+    // Get the selected color code
+    var selectedColorCode = selectElement.value;
 
-        var colorName = selectElement.dataset.colorName;
+    // Access the color name corresponding to the selected color code from the color map
+    var colorName = colorMap[selectedColorCode];
 
-        var textNode = document.createTextNode(colorName);
+    // Create a text node with the color name
+    var textNode = document.createTextNode(colorName);
 
-        var cell = selectElement.parentElement;
-        cell.replaceChild(textNode, selectElement);
-
-        cell.style.backgroundColor = selectElement.value;
+    // Replace the select element with the text node
+    var parentElement = selectElement.parentNode;
+    parentElement.insertBefore(textNode, selectElement); // Insert text node before the select element
+    parentElement.removeChild(selectElement); // Remove the select element
     });
 
 
