@@ -13,7 +13,10 @@
     }
     table {
         margin: 0 auto;
+        filter: grayscale(100%);
     }
+
+
 </style>
 <body>
 
@@ -23,14 +26,37 @@
 <img src = "../images/greyscale_logo.jpg" width = 100 >
 </div>
 </header>
-<div id="tableContainer"></div>
+<div id = "colorContainer"></div>
+<div id = "tableContainer"></div>
+
 
 <script>
 window.onload = function() {
 
+
+
     var tableHTML = window.opener.document.querySelector('#squareTable').outerHTML;
-    // Display the table on the print page
+    var colorHTML = window.opener.document.querySelector('#colorTable').outerHTML;
+
+
     document.getElementById('tableContainer').innerHTML = tableHTML;
+    document.getElementById('colorContainer').innerHTML = colorHTML;
+
+
+    var selectElements = document.querySelectorAll('#colorTable select');
+
+    selectElements.forEach(function(selectElement) {
+
+        var colorName = selectElement.dataset.colorName;
+
+        var textNode = document.createTextNode(colorName);
+
+        var cell = selectElement.parentElement;
+        cell.replaceChild(textNode, selectElement);
+
+        cell.style.backgroundColor = selectElement.value;
+    });
+
 
 };
 </script>
