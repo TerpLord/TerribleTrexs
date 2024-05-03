@@ -188,54 +188,33 @@
 
                  $("#squareTable").on('click', 'td', function() {
                     var cellId = $(this).attr("id");
-                    var [cell, id] = cellId.split('|');                    
-                    $(this).toggleClass("test");
+                    var [cell, id] = cellId.split('|');
+                                      
+                    
                     const selectedRow = $('input[name="color"]:checked').val()
-                    console.log(selectedRow);
+                    var selectedValue = $("#colorDropdown_" + selectedRow).val();  
+                    console.log(selectedValue);
                     colorRows[selectedRow].push(id);
-                    $(this).trigger("cellChange");
                     colorRows[selectedRow].sort();
                     $("#colorSelectors").find("tr:eq(" + selectedRow + ") td:eq(1)").text(colorRows[selectedRow].join(", "));
+
+                    if ($(this).css("background-color") !== selectedValue)
+                    {
+                        $(this).css("background-color", selectedValue);
+                    }
+                    else
+                    {
+
+                        $(this).css("background-color", "");
+                    }
                 });
 
-               /* $("#colorTable").on('cellChange', 'td', function() {
-                    var cellId = $(this).attr("id");
-                    
-                    var [cell, id] = cellId.split('|');   
-                    console.log(id); 
-                    
-                    var row = parseInt(id.slice(-1));
-                    colorRows[color].push(id);
-                    console.log(colorRows[color]);
-                    
-                });*/
+              
             }
             function openPrintPage() 
             {
                 window.open('printpage.php', '_blank');
             }
-
-            /*$(document).ready(function()
-            {
-                $("#colortable").click(function()
-                {
-                    var currentColor = selectedColor.split(" ")[0];
-                    $("#colors td").removeClass("selected");
-                    $(this).addClass("selected");
-                    selectedColor = $(this).attr("class");
-                    $("#gameBoard ." + currentColor).attr("class", selectedColor);
-                });
-            });
-
-
-                $("#squareTable").on('click', function()
-                {
-                    
-                    var cellId = $(this).attr("id");
-                    console.log(cellId);
-                    var [cell, id] = cellId.split('|');                    
-                    $(this).attr("class") == undefined ? $(this).addClass("test") : $(this).removeAttr("class");                                       
-                });*/
 
             </script>
 
