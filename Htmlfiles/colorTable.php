@@ -8,6 +8,7 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
     <link rel="stylesheet" href="../CSSfiles/table.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
     <body>
@@ -46,6 +47,8 @@
                 ["black", "#000000"],
                 ["teal", "#008080"]
             ]);
+
+            let colorRows = [];
 
             // checking to see if the color has been selected before or not
             function checkSelection(dropdown) {
@@ -99,19 +102,22 @@
                     let colorName = colorNames[i]; 
                     let color = colorMap.get(colorName); 
                     colorTable += "<tr>";
+                    colorRows.push([]);
                     for (var j = 0; j < 2; j++) {
                         if (j == 0) {
                         colorTable += "<td>";
 
                         colorTable += "<select id='colorDropdown_" + i + "' onchange='checkSelection(this)'>";
+                        
                         // Adding options to the dropdown
                         for (let [name, color] of colorMap) {
                             colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
-                        colorTable += "</select>";
+                        colorTable += "</input>";
+                        colorTable += "<input type='radio' name='color' value=" + i + ">";
                         colorTable += "</td>";
                         } else {
-                            colorTable += "<td></td>";
+                            colorTable += "<td>" + colorRows[i] +" </td>";
                         }
                     }
                     colorTable += "</tr>";
@@ -153,6 +159,7 @@
                             else
                             {
                                 tableCode += "<td "
+                                tableCode += " id=cell|" + String.fromCharCode(64+j) + (i+1)  
                                 tableCode += "></td>"
                             }
                             
@@ -178,11 +185,58 @@
                 }
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
+
+                 $("#squareTable").on('click', 'td', function() {
+                    var cellId = $(this).attr("id");
+                    var [cell, id] = cellId.split('|');                    
+                    $(this).toggleClass("test");
+                    const selectedRow = $('input[name="color"]:checked').val()
+                    console.log(selectedRow);
+                    colorRows[selectedRow].push(id);
+                    $(this).trigger("cellChange");
+                    colorRows[selectedRow].sort();
+                    $("#colorSelectors").find("tr:eq(" + selectedRow + ") td:eq(1)").text(colorRows[selectedRow].join(", "));
+                });
+
+               /* $("#colorTable").on('cellChange', 'td', function() {
+                    var cellId = $(this).attr("id");
+                    
+                    var [cell, id] = cellId.split('|');   
+                    console.log(id); 
+                    
+                    var row = parseInt(id.slice(-1));
+                    colorRows[color].push(id);
+                    console.log(colorRows[color]);
+                    
+                });*/
             }
             function openPrintPage() 
             {
                 window.open('printpage.php', '_blank');
             }
+
+            /*$(document).ready(function()
+            {
+                $("#colortable").click(function()
+                {
+                    var currentColor = selectedColor.split(" ")[0];
+                    $("#colors td").removeClass("selected");
+                    $(this).addClass("selected");
+                    selectedColor = $(this).attr("class");
+                    $("#gameBoard ." + currentColor).attr("class", selectedColor);
+                });
+            });
+
+
+                $("#squareTable").on('click', function()
+                {
+                    
+                    var cellId = $(this).attr("id");
+                    console.log(cellId);
+                    var [cell, id] = cellId.split('|');                    
+                    $(this).attr("class") == undefined ? $(this).addClass("test") : $(this).removeAttr("class");                                       
+                });*/
+
             </script>
 
             <p>Enter the number of colors options you would like (1-10)</p>
