@@ -52,37 +52,25 @@
 
             // checking to see if the color has been selected before or not
             function checkSelection(dropdown) {
-            let selectedColor = dropdown.value;
-            let dropdownId = dropdown.id;
-            let previousColor = dropdown.dataset.previousColor; // Get the previous value
+                let selectedColor = dropdown.value;
+                let dropdownId = dropdown.id;
 
-            let duplicates = false;
-            document.querySelectorAll("select").forEach((select) => {
-                if (select.id !== dropdownId && select.value === selectedColor) {
+                
+                let duplicates = false;
+                document.querySelectorAll("select").forEach((select) => {
+                 if (select.id !== dropdownId && select.value === selectedColor) {
                     duplicates = true;
+                    }
+                });
+
+                if (duplicates) {
+                dropdown.value = ""; // Reset the selection to empty might want to change this most recent color selected
+                // Inform the user of the error this is not working as of now
+                document.getElementById('error').innerText = "Error: Two of the same colors cannot be selected.";
+                } else {
+                 document.getElementById('error').innerText = ""; // Clear any previous error messages
                 }
-            });
-
-            if (duplicates) {
-                // Revert to the previous value
-                dropdown.value = previousColor;
-            } else {
-                // Update the previous value
-                dropdown.dataset.previousColor = selectedColor;
             }
-            if (!previousColor) {
-                dropdown.value = dropdown.options[0].value;
-                dropdown.dataset.previousColor = dropdown.options[0].value;
-            }
-        }
-
-
-
-        function updateColor(dropdown, rowIndex, columnIndex) {
-            let selectedColor = dropdown.value;
-            let cellId = "colorCell_" + rowIndex + "_" + columnIndex;
-            document.getElementById(cellId).style.backgroundColor = selectedColor;
-        }
 
             function updateColor(dropdown, rowIndex, columnIndex) {
                 let selectedColor = dropdown.value;
