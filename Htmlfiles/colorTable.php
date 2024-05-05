@@ -77,13 +77,6 @@
         }
 
 
-
-        function updateColor(dropdown, rowIndex, columnIndex) {
-            let selectedColor = dropdown.value;
-            let cellId = "colorCell_" + rowIndex + "_" + columnIndex;
-            document.getElementById(cellId).style.backgroundColor = selectedColor;
-        }
-
             function updateColor(dropdown, rowIndex, columnIndex) {
                 let selectedColor = dropdown.value;
                 let cellId = "colorCell_" + rowIndex + "_" + columnIndex;
