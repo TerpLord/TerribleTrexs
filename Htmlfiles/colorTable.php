@@ -114,8 +114,12 @@
                             colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
                         colorTable += "</input>";
-                        colorTable += "<input type='radio' name='color' value=" + i + ">";
-                        colorTable += "</td>";
+                        colorTable += "<input type='radio' name='color' value=" + i;
+                        if (i == 0)
+                        {
+                            colorTable += " checked";
+                        }
+                        colorTable += "></td>";
                         } else {
                             colorTable += "<td>" + colorRows[i] +" </td>";
                         }
@@ -192,20 +196,39 @@
                                       
                     
                     const selectedRow = $('input[name="color"]:checked').val()
-                    var selectedValue = $("#colorDropdown_" + selectedRow).val();  
-                    console.log(selectedValue);
-                    colorRows[selectedRow].push(id);
-                    colorRows[selectedRow].sort();
-                    $("#colorSelectors").find("tr:eq(" + selectedRow + ") td:eq(1)").text(colorRows[selectedRow].join(", "));
-
-                    if ($(this).css("background-color") !== selectedValue)
+                    var selectedValue = $("#colorDropdown_" + selectedRow).val(); 
+                    for (var i = 0; i < colorRows.length; i++)
                     {
-                        $(this).css("background-color", selectedValue);
+                        let index = colorRows[i].indexOf(id);
+                        if (index !== -1)
+                        {
+                            colorRows[i].splice(index, 1);
+                        }
+                    }
+                    
+                    var rgbValue = $(this).css("background-color");
+                    var rgbArray = rgbValue.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+                    var hexCode = "#";
+                    for (var i = 1; i <= 3; i++) 
+                    {
+                        var current = parseInt(rgbArray[i]);
+                        var hexComponent = current.toString(16);
+                        hexCode += (hexComponent.length === 1 ? "0" + hexComponent : hexComponent);
+                    }        
+                    if (hexCode == (selectedValue.toLowerCase()))
+                    {
+                        
+                        $(this).css("background-color", "");
                     }
                     else
                     {
-
-                        $(this).css("background-color", "");
+                        $(this).css("background-color", selectedValue);
+                        colorRows[selectedRow].push(id);
+                        colorRows[selectedRow].sort();
+                    }
+                    for (var i = 0; i < colorRows.length; i++) 
+                    {
+                        $("#colorSelectors").find("tr:eq(" + i + ") td:eq(1)").text(colorRows[i].join(", "));
                     }
                 });
 
