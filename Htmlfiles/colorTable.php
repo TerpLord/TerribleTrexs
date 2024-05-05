@@ -54,8 +54,10 @@
             function checkSelection(dropdown) {
             let selectedColor = dropdown.value;
             let dropdownId = dropdown.id;
+            let lastNumber = dropdownId.match(/\d+$/)[0];
             let previousColor = dropdown.dataset.previousColor; // Get the previous value
-
+                console.log(dropdownId);
+                console.log(lastNumber);
             let duplicates = false;
             document.querySelectorAll("select").forEach((select) => {
                 if (select.id !== dropdownId && select.value === selectedColor) {
@@ -71,9 +73,10 @@
                 dropdown.dataset.previousColor = selectedColor;
             }
             if (!previousColor) {
-                dropdown.value = dropdown.options[0].value;
-                dropdown.dataset.previousColor = dropdown.options[0].value;
+                dropdown.value = dropdown.options[lastNumber].value;
+                dropdown.dataset.previousColor = dropdown.options[lastNumber].value;
             }
+            
         }
 
 
