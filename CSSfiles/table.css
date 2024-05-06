@@ -210,7 +210,7 @@ input[type="radio"]:not(:disabled):checked::before {
   line-height: 20px;
   color: green;
   position: absolute;
-  top: -10px;
+  top: -8px;
 }
 
 #printButton{
