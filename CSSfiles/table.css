@@ -52,8 +52,7 @@ body{
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
-  
-  /* Links inside the dropdown */
+
   .dropdown-content a {
     color: black;
     padding: 12px 16px;
@@ -61,16 +60,13 @@ body{
     display: block;
   }
   
-  /* Change color of dropdown links on hover */
   .dropdown-content a:hover {
     background-color: black;
     color:beige;
 }
-  
-  /* Show the dropdown menu on hover */
+
   .dropdown:hover .dropdown-content {display: block;}
   
-  /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: black;}
 
   #colorSelectors {
@@ -114,7 +110,8 @@ body{
 
   p {
     font-weight: bold;
-    
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
 #printButton {
@@ -173,6 +170,7 @@ select {
     border-radius: 4px;
     background-color: beige; 
     color: #333;
+    margin: auto;
 }
 
 
@@ -180,19 +178,63 @@ select:hover {
     border-color: white;
 }
 
-/* Custom radio button style */
-.radiobtn {
-    display: inline-block;
-    cursor: pointer;
-    padding: 5px 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
+
+input[type="radio"] {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  margin-left: 10px;
+  border: 2px solid red;
+  border-radius: 50%;
+  appearance: none;
+  background-color: transparent;
+  outline: none;
+  background-color: beige;
+  position: relative;
 }
 
-/* Checked state style */
-.radiobtn:checked {
-    background-color: #4CAF50; /* Green background color */
-    color: #fff; /* White text color */
+input[type="radio"]:not(:disabled):checked {
+  border-color: green;
+  background-color: beige;
+
 }
+
+input[type="radio"]:not(:disabled):checked::before {
+  content: '\2713';
+  display: block;
+  width: 120%;
+  height: 120%;
+  font-size: 32px;
+  text-align: center;
+  line-height: 20px;
+  color: green;
+  position: absolute;
+  top: -10px;
+}
+
+#printButton{
+    background-color: #0B140B; 
+    border: none;
+    color: beige;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#printButton:hover {
+    background-color: beige;
+    color: #0B140B;
+}
+
+#printButton:active {
+    background-color: #3e8e41; 
+}
+
+
+

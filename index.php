@@ -15,21 +15,19 @@
   			<div class="dropdown-content">
     			<a href="index.php">Main Page</a>
     			<a href="Htmlfiles/about.php">About Page</a>
-    			<a href="Htmlfiles/colorTable.php">Table</a>
+    			<a href="Htmlfiles/colorTable.php">Color Table</a>
   			</div>
 	</div>
 </header>
 
 <body>
 	<img id = "main_image" src = "images/Logo.jpg"></img>
-	<p>
-		Welcome to the TerribleTrexs's Homepage, 
-		you will be able to find our projects and other relevant pages in the links below 
-		or in the dropdown Menu at the top right of the screen
-	</p>
+	<p> We are the TerribleTrexs! Welcome to our homepage! </p>
+	<p> We strive to provide accessibility and functionality to our users and improve your quality of life.  </p>
+	<p> You can find out more about our members and view our projects in the links below or by accessing the dropdown menu on the top right. </p>	
 	<ul>
-		<li><a href = "Htmlfiles/about.php"> About Page </a></li>
-		<li><a href = "Htmlfiles/colorTable.php"> Table </a></li>
+		<li><a href = "Htmlfiles/about.php"> About Us</a></li>
+		<li><a href = "Htmlfiles/colorTable.php">Color Table</a></li>
 	</ul>
 
 	

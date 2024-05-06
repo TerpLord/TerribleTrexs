@@ -15,7 +15,7 @@
   				<div class="dropdown-content">
     				<a href="../index.php">Main Page</a>
     				<a href="about.php">About Page</a>
-    				<a href="colorTable.php">Table</a>
+    				<a href="colorTable.php">Color Table</a>
   				</div>
 		</div>
 	</header>

@@ -16,10 +16,11 @@ header {
 }
 
 p{
-  /* display: inline-block; */
+  padding-top: 2px;
+  margin: auto;
   font-size: large;
   text-align: center;
-  /* width: 50%; */
+  font-family: sans-serif;
 }
 
 #main_image{
@@ -30,7 +31,7 @@ p{
     border: 2px solid #69af2f; 
     border-radius: 50%;
     margin-top: 3%;
-
+    
 }
 ul{
   list-style: none;
@@ -96,3 +97,30 @@ li{
 body{
     background-color: #d2912f;
 }
+
+ul {
+    text-align: center;
+    border-color: black;
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 5px;
+    margin: auto;
+}
+
+li a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+li a:hover {
+    background-color: beige;
+    font-weight: bold;
+    color: black;
+}
+

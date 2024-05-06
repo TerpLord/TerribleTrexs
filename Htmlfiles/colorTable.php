@@ -19,7 +19,7 @@
   				    <div class="dropdown-content">
     				    <a href="../index.php">Main Page</a>
     				    <a href="about.php">About Page</a>
-    				    <a href="colorTable.php">Table</a>
+    				    <a href="colorTable.php">Color Table</a>
   				</div>
 		    </div>
 	    </header>
@@ -125,7 +125,7 @@
                             colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
                         colorTable += "</input>";
-                        colorTable += "<class = 'radiobtn' input type='radio' name='color' value=" + i;
+                        colorTable += "<input type='radio' name='color' value=" + i;
                         if (i == 0)
                         {
                             colorTable += " checked";
@@ -252,9 +252,9 @@
 
             </script>
 
-            <p>Enter the number of colors options you would like (1-10)</p>
+            <p>Enter the number of colors options you would like:</p>
             <input name = "numColors" type = "text" value = "" id="colorInput"/>
-            <p>Enter the number or rows and columns you would like to see (1-26)</p>
+            <p>Enter the number or rows and columns you would like to see (1-26):</p>
             <input name = "tableSize" type = "text" value = "" id="tableSizeInput"/>
             <br>
             <br>
