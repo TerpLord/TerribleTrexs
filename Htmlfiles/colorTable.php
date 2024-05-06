@@ -71,6 +71,11 @@
             } else {
                 // Update the previous value
                 dropdown.dataset.previousColor = selectedColor;
+                document.querySelectorAll("#squareTable td").forEach((cell) => {
+                if (cell.style.backgroundColor === previousColor) {
+                    cell.style.backgroundColor = selectedColor;
+                    }
+                });
             }
             if (!previousColor) {
                 dropdown.value = dropdown.options[lastNumber].value;
