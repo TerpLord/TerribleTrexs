@@ -48,7 +48,7 @@
                 ["teal", "#008080"]
             ]);
 
-            let colorRows = [];
+            
 
             // checking to see if the color has been selected before or not
             function checkSelection(dropdown) {
@@ -89,12 +89,16 @@
 
             function drawTable()
             {
+                let colorRows = [];
                 var tableCode = "";
                 var colorTable = "";
                 let colorInput = document.getElementById('colorInput').value;
                 let tableInput = document.getElementById('tableSizeInput').value;
                 let colorSize = Number(colorInput);
                 let tableSize = Number(tableInput);
+
+                $("#colorInput").val("");
+                $("#tableSizeInput").val("");
                 
                 if (colorSize > 0 && colorSize <= 10 && tableSize > 0 && tableSize <= 26)
                 {
@@ -117,12 +121,11 @@
 
                         colorTable += "<select id='colorDropdown_" + i + "' onchange='checkSelection(this)'>";
                         
-                        // Adding options to the dropdown
                         for (let [name, color] of colorMap) {
                             colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
                         colorTable += "</input>";
-                        colorTable += "<input type='radio' name='color' value=" + i;
+                        colorTable += "<class = 'radiobtn' input type='radio' name='color' value=" + i;
                         if (i == 0)
                         {
                             colorTable += " checked";

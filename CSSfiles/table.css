@@ -126,3 +126,73 @@ body{
 .test {
   background-color: black;
 }
+
+input[name="generateTable"] {
+    background-color: #0B140B; 
+    border: none;
+    color: beige;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+input[name="generateTable"]:hover {
+    background-color: beige;
+    color: #0B140B;
+}
+
+input[name="generateTable"]:active {
+    background-color: #3e8e41; 
+}
+
+input[name="numColors"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[name="tableSize"] {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #0B140B; 
+    border-radius: 4px;
+    background-color: beige; 
+    color: #333;
+}
+
+
+select:hover {
+    border-color: white;
+}
+
+/* Custom radio button style */
+.radiobtn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Checked state style */
+.radiobtn:checked {
+    background-color: #4CAF50; /* Green background color */
+    color: #fff; /* White text color */
+}
