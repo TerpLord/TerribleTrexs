@@ -36,11 +36,11 @@ window.onload = function() {
    
     colorHTML = colorHTML.replace(/<input.*?radio.*?>/g, '');
 
-    // Clean up the tables to have no color
+
     colorHTML = colorHTML.replace(/<td.*?>/g, '<td>'); 
     tableHTML = tableHTML.replace(/<td.*?>/g, '<td>'); 
 
-    // Set background of all cells to white
+   
     document.getElementById('colorContainer').innerHTML = colorHTML;
     document.getElementById('tableContainer').innerHTML = tableHTML;
 
