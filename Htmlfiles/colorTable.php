@@ -19,7 +19,7 @@
   				    <div class="dropdown-content">
     				    <a href="../index.php">Main Page</a>
     				    <a href="about.php">About Page</a>
-    				    <a href="colorTable.php">Table</a>
+    				    <a href="colorTable.php">Color Table</a>
   				</div>
 		    </div>
 	    </header>
@@ -48,7 +48,7 @@
                 ["teal", "#008080"]
             ]);
 
-            let colorRows = [];
+            
 
             // checking to see if the color has been selected before or not
             function checkSelection(dropdown) {
@@ -89,12 +89,16 @@
 
             function drawTable()
             {
+                let colorRows = [];
                 var tableCode = "";
                 var colorTable = "";
                 let colorInput = document.getElementById('colorInput').value;
                 let tableInput = document.getElementById('tableSizeInput').value;
                 let colorSize = Number(colorInput);
                 let tableSize = Number(tableInput);
+
+                $("#colorInput").val("");
+                $("#tableSizeInput").val("");
                 
                 if (colorSize > 0 && colorSize <= 10 && tableSize > 0 && tableSize <= 26)
                 {
@@ -117,7 +121,6 @@
 
                         colorTable += "<select id='colorDropdown_" + i + "' onchange='checkSelection(this)'>";
                         
-                        // Adding options to the dropdown
                         for (let [name, color] of colorMap) {
                             colorTable += "<option value='" + color + "'" + (name === colorName ? " selected" : "") + ">" + name + "</option>";
                         }
@@ -249,9 +252,9 @@
 
             </script>
 
-            <p>Enter the number of colors options you would like (1-10)</p>
+            <p>Enter the number of colors options you would like:</p>
             <input name = "numColors" type = "text" value = "" id="colorInput"/>
-            <p>Enter the number or rows and columns you would like to see (1-26)</p>
+            <p>Enter the number or rows and columns you would like to see (1-26):</p>
             <input name = "tableSize" type = "text" value = "" id="tableSizeInput"/>
             <br>
             <br>
