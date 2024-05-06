@@ -23,14 +23,32 @@
 
 <script>
 window.onload = function() {
-
-    var tableHTML = window.opener.document.querySelector('#squareTable').outerHTML;
     var colorHTML = window.opener.document.querySelector('#colorSelectors').outerHTML;
+    var tableHTML = window.opener.document.querySelector('#squareTable').outerHTML;
 
-    document.getElementById('tableContainer').innerHTML = tableHTML;
+    
+    colorHTML = colorHTML.replace(/<select.*?select>/g, function(match) {
+        var selectedColorName = match.match(/<option.*?selected.*?>(.*?)<\/option>/)[1];
+        var hexCode = match.match(/<option.*?selected.*?value="(.*?)".*?>/)[1];
+        return `<span>${selectedColorName} (${hexCode})</span>`;
+    });
+
+   
+    colorHTML = colorHTML.replace(/<input.*?radio.*?>/g, '');
+
+
+    colorHTML = colorHTML.replace(/<td.*?>/g, '<td>'); 
+    tableHTML = tableHTML.replace(/<td.*?>/g, '<td>'); 
+
+   
     document.getElementById('colorContainer').innerHTML = colorHTML;
+    document.getElementById('tableContainer').innerHTML = tableHTML;
 
-
+    
+    var cells = document.querySelectorAll('#colorContainer td, #tableContainer td');
+    cells.forEach(function(td) {
+        td.style.backgroundColor = 'white'; 
+    });
 };
 </script>
 </body>
