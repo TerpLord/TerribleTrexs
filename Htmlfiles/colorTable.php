@@ -57,7 +57,6 @@
             let lastNumber = dropdownId.match(/\d+$/)[0];
             let previousColor = dropdown.dataset.previousColor; // Get the previous value
             let duplicates = false;
-            console.log(dropdown.dataset);
             document.querySelectorAll("select").forEach((select) => {
                 if (select.id !== dropdownId && select.value === selectedColor) {
                     duplicates = true;
@@ -218,7 +217,6 @@
 
                 for (let q = 0; q < colorInput; q++)
                 {
-                    console.log(colorArray[q][1]);
                     let dropdown = document.getElementById("colorDropdown_" + q);
                     dropdown.dataset.previousColor = colorArray[q][1];
                 }
