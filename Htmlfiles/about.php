@@ -22,11 +22,9 @@
 
     <div class="team-members">
         <div class="team-member">
-            <img src="../images/Omar.jpg" alt="Member 1">
-            <h2>Omar Soliman</h2>
-            <p>Hey, I am Omar Soliman, a Computer Science Major at Colorado State University. 
-                Outside of school, I am a game developer, I have worked on over 4 games different games
-                and I am currently working on my biggest project to date a Lord of the Rings game. My hobbies are swimming, hiking and playing/watching soccer.
+            <img src="../images/Logo.jpg" alt="Member 1">
+            <h2></h2>
+            <p>
             </p>
         </div>
         <div class="team-member">
