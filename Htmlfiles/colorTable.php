@@ -56,8 +56,6 @@
             let dropdownId = dropdown.id;
             let lastNumber = dropdownId.match(/\d+$/)[0];
             let previousColor = dropdown.dataset.previousColor; // Get the previous value
-                console.log(dropdownId);
-                console.log(lastNumber);
             let duplicates = false;
             document.querySelectorAll("select").forEach((select) => {
                 if (select.id !== dropdownId && select.value === selectedColor) {
@@ -71,12 +69,26 @@
             } else {
                 // Update the previous value
                 dropdown.dataset.previousColor = selectedColor;
+                document.querySelectorAll("#squareTable td").forEach((cell) => {
+                let cellColor = cell.style.backgroundColor;
+                
+                if (cellColor !== "")
+                {
+                    let hexCode = "#";
+                    var rgbArray = cellColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);  
+                    for (var i = 1; i <= 3; i++) 
+                    {
+                        var current = parseInt(rgbArray[i]);
+                        var hexComponent = current.toString(16);
+                        hexCode += (hexComponent.length === 1 ? "0" + hexComponent : hexComponent);
+                    }        
+                    if (hexCode === previousColor.toLowerCase()) {
+                    cell.style.backgroundColor = selectedColor;
+                    }
+                }
+                
+                });
             }
-            if (!previousColor) {
-                dropdown.value = dropdown.options[lastNumber].value;
-                dropdown.dataset.previousColor = dropdown.options[lastNumber].value;
-            }
-            
         }
 
 
@@ -89,6 +101,7 @@
 
             function drawTable()
             {
+                
                 let colorRows = [];
                 var tableCode = "";
                 var colorTable = "";
@@ -96,6 +109,7 @@
                 let tableInput = document.getElementById('tableSizeInput').value;
                 let colorSize = Number(colorInput);
                 let tableSize = Number(tableInput);
+                let colorArray = Array.from(colorMap);
 
                 $("#colorInput").val("");
                 $("#tableSizeInput").val("");
@@ -200,6 +214,12 @@
                 }
                 document.getElementById('colorTable').innerHTML = colorTable;
                 document.getElementById('squareTable').innerHTML = tableCode;
+
+                for (let q = 0; q < colorInput; q++)
+                {
+                    let dropdown = document.getElementById("colorDropdown_" + q);
+                    dropdown.dataset.previousColor = colorArray[q][1];
+                }
 
                  $("#squareTable").on('click', 'td', function() {
                     var cellId = $(this).attr("id");
